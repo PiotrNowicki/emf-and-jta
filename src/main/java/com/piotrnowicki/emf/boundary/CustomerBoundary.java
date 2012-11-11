@@ -41,7 +41,7 @@ public class CustomerBoundary {
 
     /**
      * We're injecting the JTA Resource (take a look at {@code persistence.xml} - there is only one, default, PersistenceUnit
-     * and it's {@code jta-data-source}. It means that we'll be using JTA transactions and not
+     * and it's {@code transaction-type=JTA} (by default). It means that we'll be using JTA transactions and not
      * {@link EntityManager#getTransaction()}.
      */
     @PersistenceUnit
