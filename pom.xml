@@ -6,6 +6,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
+	<url>http://www.piotrnowicki.com</url>
+	<scm>
+		<url>https://github.com/PiotrNowicki/emf-and-jta</url>
+	</scm>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

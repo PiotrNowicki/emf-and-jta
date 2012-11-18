@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
+import com.piotrnowicki.emf.boundary.BeanABoundary;
 import com.piotrnowicki.emf.boundary.CustomerBoundary;
 import com.piotrnowicki.emf.entity.Customer;
 
@@ -22,6 +23,9 @@ public class Entities {
 
     @EJB
     private CustomerBoundary customerBoundary;
+
+    @EJB
+    private BeanABoundary beanABoundary;
 
     /*
      * This omits the CDI Producer method as we're using @PersistceContext and not @Inject
@@ -46,6 +50,21 @@ public class Entities {
         // customerBoundary.executeWithTxStaredBeforeEntityManager("John", "Doe");
         // customerBoundary.executeWithTxStaredBeforeEntityManagerWithJoin("John", "Doe");
         // customerBoundary.executeWithTxMultipleTransactions("John", "Doe");
+
+        return getAll();
+    }
+
+    /**
+     * Invoke this method if you want to see the results of CDI RequestScoped injected application-managed EntityManager. If the
+     * bean was properly executed we should return the new customer named 'CDITest1'.
+     * 
+     * @return
+     * @throws Exception
+     */
+    @Path("cdi")
+    @GET
+    public String injectUsingCdi() throws Exception {
+        beanABoundary.invoke();
 
         return getAll();
     }

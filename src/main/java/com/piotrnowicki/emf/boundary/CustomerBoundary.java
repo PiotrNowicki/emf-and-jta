@@ -10,6 +10,7 @@ import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 import javax.transaction.UserTransaction;
 
@@ -38,6 +39,9 @@ public class CustomerBoundary {
 
     @EJB
     private CustomerControl beanB;
+    
+    @PersistenceContext
+    EntityManager em;
 
     /**
      * We're injecting the JTA Resource (take a look at {@code persistence.xml} - there is only one, default, PersistenceUnit
